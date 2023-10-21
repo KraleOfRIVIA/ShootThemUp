@@ -1,0 +1,12 @@
+.vs/
+*.sln
+.vscode/
+*.uproject
+DerivedDataCache/
+Intermediate/
+Saved/
+Binaries/
+Script/
+Build/
+Content/
+Config/
