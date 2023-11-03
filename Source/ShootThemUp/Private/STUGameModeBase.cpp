@@ -10,6 +10,7 @@
 #include "STUUtils.h"
 #include "Component/STURespawnComponent.h"
 #include "EngineUtils.h"
+#include "STUGameInstance.h"
 DEFINE_LOG_CATEGORY_STATIC(LogSTUGameMode, All, All)
 
 constexpr static int32 MinRoundTimeForRespawn = 10;
@@ -24,7 +25,7 @@ ASTUGameModeBase::ASTUGameModeBase()
 void ASTUGameModeBase::StartPlay()
 {
 	Super::StartPlay();
-
+	
 	SpawnBots();
 	CreateTeamsInfo();
 
