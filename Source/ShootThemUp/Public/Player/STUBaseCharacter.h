@@ -44,6 +44,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Material")
 	FName MaterialColorName = "Paint Color";
 
+	virtual void OnHealthChanged(float Health,float HealthDelta);
 
 public:	
 	// Called every frame
@@ -58,8 +59,6 @@ public:
 	void SetPlayerColor(const FLinearColor &Color);
 
  private:
-	
-	void OnHealthChanged(float Health,float HealthDelta);
 	
 	UFUNCTION()
 	void OnGroundLanded(const FHitResult &Hit);
