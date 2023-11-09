@@ -8,6 +8,7 @@
 #include "STUGameInstance.h"
 #include "Menu/UI/STULevelItemWidget.h"
 #include "Components/HorizontalBox.h"
+#include "Sound/SoundCue.h"
 
 void USTUMenuWidget::NativeOnInitialized()
 {

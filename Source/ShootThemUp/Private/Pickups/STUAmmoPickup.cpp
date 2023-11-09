@@ -5,7 +5,6 @@
 #include "Component/STUWeaponComponent.h"
 #include "Component/STUHealthComponent.h"
 #include "STUUtils.h"
-
 DEFINE_LOG_CATEGORY_STATIC(LogAmmoPickup, All, All);
 
 bool ASTUAmmoPickup::GivPickupTo(APawn *PlayerPawn)
@@ -15,6 +14,6 @@ bool ASTUAmmoPickup::GivPickupTo(APawn *PlayerPawn)
 
 	const auto WeaponComponent = STUUtils::GetSTUPlayerComponent<USTUWeaponComponent>(PlayerPawn);
 	if (!WeaponComponent) return false;
-
+	
 	return WeaponComponent->TryToAddAmmo(WeaponType, ClipsAmount);
 }

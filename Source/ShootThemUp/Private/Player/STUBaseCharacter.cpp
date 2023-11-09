@@ -4,12 +4,13 @@
 #include "Player/STUBaseCharacter.h"
 #include "Component/STUCharacterMovementComponent.h"
 #include "Component/STUHealthComponent.h"
-#include "Components/TextRenderComponent.h"
 #include "Component/STUWeaponComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/Controller.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 
-DEFINE_LOG_CATEGORY_STATIC(LogBaseCharacter,All,All);
+DEFINE_LOG_CATEGORY_STATIC(LogBaseCharacter, All, All);
 
 ASTUBaseCharacter::ASTUBaseCharacter(const FObjectInitializer &ObjInit) 
 	:Super(ObjInit.SetDefaultSubobjectClass<USTUCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
@@ -77,6 +78,7 @@ void ASTUBaseCharacter::OnDeath()
 		GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		GetMesh()->SetSimulatePhysics(true);
 	}
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), DeathSoundCue, GetActorLocation());
 }
 
 void ASTUBaseCharacter::OnHealthChanged(float Health,float HelthDelta)

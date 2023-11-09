@@ -8,6 +8,9 @@
 #include "GameFramework/Controller.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
+#
 
 DEFINE_LOG_CATEGORY_STATIC(LogBaseWeapon, All, All);
 
@@ -28,7 +31,10 @@ void ASTUBaseWeapon::BeginPlay()
 	CurrentAmmo = DefaultAmmo;
 }
 void ASTUBaseWeapon::MakeShot() {}
-void ASTUBaseWeapon::StartFire() {}
+void ASTUBaseWeapon::StartFire()
+{
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), FireSound, GetMuzzleWorldLocation());
+}
 void ASTUBaseWeapon::StopFire() {}
 bool ASTUBaseWeapon::GetPlayerViewPoint(FVector &ViewLocation, FRotator &ViewRotation) const
 {

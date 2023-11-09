@@ -9,7 +9,7 @@
 
 class USTUHealthComponent;
 class USTUWeaponComponent;
-
+class USoundCue;
 UCLASS()
 class SHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
 {
@@ -37,6 +37,8 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
+	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite,Category="Sound")
+	USoundCue *DeathSoundCue;
 
 	virtual void BeginPlay() override;
 	virtual void OnDeath();

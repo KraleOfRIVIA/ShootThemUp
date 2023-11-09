@@ -3,7 +3,8 @@
 
 #include "Pickups/STUBasePickup.h"
 #include "Components/SphereComponent.h"
-
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 DEFINE_LOG_CATEGORY_STATIC(LogBasePickup, All, All);
 
 ASTUBasePickup::ASTUBasePickup()
@@ -34,6 +35,7 @@ void ASTUBasePickup::NotifyActorBeginOverlap(AActor *OtherActor)
 	if (GivPickupTo(Pawn))
 	{
 		PickupWasTaken();
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), PickupSound, GetActorLocation());
 	}
 }
 
